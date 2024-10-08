@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.box {
+    display: flex;
+    width: 900px;
+    height: 600px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 20px; /* Add margin for spacing around the box */
+}
+
+.l-selection {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6EA6C0;
+}
+
+.rect {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px 0 0 12px;
+}
+
+.r-selection {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: #fff;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    text-align: left;
+}
+
+h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input {
+    margin-bottom: 5px; /* Further reduced spacing between input fields */
+    width: 100%;
+}
+
+.input label {
+    display: block;
+    font-size: 14px;
+    /* margin-bottom: 5px; Reduced margin for labels */
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: #6EA6C0;
+    outline: none;
+}
+
+.loginbtn {
+    width: 100%;
+    padding: 12px;
+    background-color: #6EA6C0;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.loginbtn:hover {
+    background-color: #5e94b1;
+}
+
+.register {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register p {
+    font-size: 14px;
+}
+
+.register a {
+    color: #6EA6C0;
+    text-decoration: none;
+}
+
+.register a:hover {
+    text-decoration: underline;
+}
+
+select {
+    appearance: none;
+    background: #f9f9f9 url('/assets/images/chevron-down.png') no-repeat right 10px center;
+    background-size: 12px;
+    padding-right: 40px; /* Space for the dropdown arrow */
+}
