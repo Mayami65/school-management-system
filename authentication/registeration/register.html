@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusLink</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="box">
+        <!-----------------------Left Section------------------->
+        <div class="l-selection">
+            <img src="/assets/images/background.webp" alt="rectangle" class="rect">
+        </div>        
+        <!-----------------------Right Section------------------->
+        <div class="r-selection">
+            <div class="login-box">
+                <h2>Create Your Account</h2>
+                <form action="#" method="post" class="registration-form">
+                    <div class="input">
+                        <label for="name">Full Name</label><br>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="input">
+                        <label for="email">Email address</label><br>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="input">
+                        <label for="password">Password</label><br>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    <div class="input">
+                        <label for="confirm-password">Confirm Password</label><br>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+
+                    <div class="input">
+                        <label for="role">Select Role</label><br>
+                        <select id="role" name="role" required>
+                            <option value="">Choose a role</option>
+                            <option value="Student">Student</option>
+                            <option value="Staff">Staff</option>
+                            <option value="Admin">Admin</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="loginbtn">Register</button>
+                </form>
+
+                <div class="register">
+                    <p>Already have an account? <a href="/authentication/login/login.html">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>

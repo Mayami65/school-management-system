@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusLink</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="box">
+        <!-----------------------Left Section------------------->
+        <div class="l-selection">
+            <img src="/assets/images/background.webp" alt="rectangle" class="rect"> <!-- Replace with your image path -->
+        </div>        
+        <!-----------------------Right Section------------------->
+        <div class="r-selection">
+            <div class="login-box">
+                <h2>Hello again!</h2>
+                <form action="#" method="post" class="login-form">
+                    <div class="input">
+                        <label for="email">Email address</label><br>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="input">
+                        <label for="password">Password</label><br>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <!-- Role Selection -->
+                    <div class="input">
+                        <label for="role">Select Role</label><br>
+                        <select id="role" name="role" required>
+                            <option value="">Choose a role</option>
+                            <option value="student">Student</option>
+                            <option value="staff">Staff</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="loginbtn">Login</button>
+                </form>
+
+                <div class="register">
+                    <p>Don't have an account? <a href="/authentication/registeration/register.html">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
