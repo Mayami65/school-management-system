@@ -1,0 +1,41 @@
+/* components/navbar/navbar.css */
+.header {
+    display: flex;
+    justify-content: space-between; /* Space between profile and role */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px;
+    background-color: white; /* Optional: White background for the header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for depth */
+}
+
+.user-profile {
+    display: flex;
+    align-items: center; /* Align profile image and username vertically */
+}
+
+.user-profile img {
+    width: 40px; /* Size of the profile image */
+    height: 40px; /* Size of the profile image */
+    border-radius: 50%; /* Makes the image circular */
+    margin-right: 10px; /* Space between image and username */
+}
+
+.user-role {
+    font-size: 0.9em; /* Slightly smaller font for role */
+    color: #6c757d; /* Gray color for the role text */
+    font-weight: 400; /* Regular weight for the role */
+}
+
+.logout-button {
+    background-color: #dc3545; /* Red background color */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 12px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.logout-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}

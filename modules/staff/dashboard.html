@@ -3,10 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusLink</title>
+    <title>CampusLink - Admin Dashboard</title>
+    <link rel="icon" href="/assets/images/favicon.webp" type="image/png">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="/components/navbar/navbar.css">
 </head>
 <body>
-    <h1>Staff Dashboard</h1>
-        <p>Welcome Staff!</p>
+    <div id="navbar"></div> <!-- Container for the navbar -->
+
+    <div class="cards">
+        <div class="card">
+            <h2>Total Staffs</h2>
+            <p id="total-staffs">0</p>
+        </div>
+    </div>
+
+    <script>
+        // Load Navbar
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('../../components/navbar/navbar.html')  // This path goes up two directories to reach 'components'
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    document.getElementById('navbar').innerHTML = html;
+
+                    // Load the navbar JavaScript after the HTML has been added
+                    const script = document.createElement('script');
+                    script.src = '/components/navbar/navbar.js';
+                    document.body.appendChild(script);
+
+                    // Setup user data
+                    const currentUser = JSON.parse(localStorage.getItem('current_user')); // Retrieve user data
+                    if (currentUser) {
+                        document.getElementById('userName').textContent = currentUser.name; // Set username
+                        document.getElementById('userRole').textContent = currentUser.role; // Set user role
+                    } else {
+                        console.log('No user is logged in.');
+                    }
+
+                    // Logout functionality
+                    document.getElementById('logoutButton').addEventListener('click', () => {
+                        localStorage.removeItem('current_user'); // Remove user data from local storage
+                        window.location.href = '/authentication/login/login.html'; // Redirect to the login page
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading the navbar:', error.message);
+                });
+        });
+    </script>
+    <script src="dashboard.js"></script>
 </body>
 </html>

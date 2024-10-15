@@ -1,0 +1,24 @@
+.cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #fff; /* White background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px; /* Padding inside the card */
+    width: 200px; /* Fixed width for cards */
+    text-align: center; /* Center align text */
+}
+
+.card h2 {
+    font-size: 1.5em; /* Font size for the heading */
+    margin-bottom: 10px; /* Space below the heading */
+}
+
+.card p {
+    font-size: 2em; /* Font size for the count */
+    color: #333; /* Dark color for text */
+}

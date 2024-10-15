@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusLink</title>
+    <title>CampusLink - Student Dashboard</title>
+    <link rel="icon" href="/assets/images/favicon.webp" type="image/png">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="/components/navbar/navbar.css">
 </head>
 <body>
-    <h1>Student Dashboard</h1>
-        <p>Welcome Student!</p>
+
+    <div id="navbar"></div> <!-- Placeholder for navbar -->
+
+    <!-- Card to display the total number of students -->
+    <div class="cards">
+        <div class="card">
+            <h2>Total Students</h2>
+            <p id="total-students">0</p>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
 </body>
 </html>

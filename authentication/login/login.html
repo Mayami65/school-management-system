@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusLink</title>
+    <title>Login Page</title>
+    <link rel="icon" href="/assets/images/favicon.webp" type="image/png">
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
     <div class="box">
         <!-----------------------Left Section------------------->
         <div class="l-selection">
-            <img src="/assets/images/background.webp" alt="rectangle" class="rect"> <!-- Replace with your image path -->
+            <img src="/assets/images/original.png" alt="rectangle" class="rect">
         </div>        
         <!-----------------------Right Section------------------->
         <div class="r-selection">
             <div class="login-box">
+                <!-- School Logo -->
+                <div class="logo">
+                    <img src="/assets/images/ATU-LOGO-AUTHENTIC.png" alt="School Logo" class="school-logo"> <!-- Replace with your logo path -->
+                </div>
+                
                 <h2>Hello again!</h2>
                 <form action="#" method="post" class="login-form">
                     <div class="input">
@@ -25,17 +31,6 @@
                     <div class="input">
                         <label for="password">Password</label><br>
                         <input type="password" id="password" name="password" required>
-                    </div>
-                    
-                    <!-- Role Selection -->
-                    <div class="input">
-                        <label for="role">Select Role</label><br>
-                        <select id="role" name="role" required>
-                            <option value="">Choose a role</option>
-                            <option value="student">Student</option>
-                            <option value="staff">Staff</option>
-                            <option value="admin">Admin</option>
-                        </select>
                     </div>
 
                     <button type="submit" class="loginbtn">Login</button>

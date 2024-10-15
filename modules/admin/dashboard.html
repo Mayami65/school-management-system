@@ -3,10 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusLink</title>
+    <title>CampusLink - Admin Dashboard</title>
+    <link rel="icon" href="/assets/images/favicon.webp" type="image/png">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="/components/navbar/navbar.css">
 </head>
 <body>
-    <h1>Admin Dashboard</h1>
-        <p>Welcome Admin!</p>
+    <!-- Header (User Profile Only) -->
+    <header class="header">
+        <div class="user-profile">
+            <img src="/assets/user.webp" alt="User Image" id="userImage">
+            <span id="userName">User Name</span> <!-- Placeholder for dynamic username -->
+        </div>
+        <span class="user-role" id="userRole">User Role</span> <!-- Placeholder for dynamic user role -->
+        <button id="logoutButton" class="logout-button">Logout</button> <!-- Logout button -->
+    </header>
+    
+    
+
+    <div class="cards">
+        <div class="card">
+            <h2>Total Admins</h2>
+            <p id="total-admins">0</p>
+        </div>
+        <div class="card">
+            <h2>Total Students</h2>
+            <p id="total-students">0</p>
+        </div>
+        <div class="card">
+            <h2>Total Staff</h2>
+            <p id="total-staff">0</p>
+        </div>
+    </div>
+
+    <script>
+        // Load user data from local storage
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentUser = JSON.parse(localStorage.getItem('current_user'));
+
+            if (currentUser) {
+                document.getElementById('userName').textContent = currentUser.name; // Display the username
+                document.getElementById('userRole').textContent = currentUser.role; // Display the role
+                // const userImage = document.getElementById('userImage');
+                // userImage.src = currentUser.image || '/assets/default-user.webp'; // Set user image or default image
+            }
+
+            // Load Navbar
+            fetch('../../components/navbar/navbar.html') // Adjust the path if necessary
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('navbar').innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error loading the navbar:', error.message);
+                });
+        });
+    </script>
+    <script src="dashboard.js"></script>
+    <script src="/components/navbar/navbar.js"></script>
 </body>
 </html>

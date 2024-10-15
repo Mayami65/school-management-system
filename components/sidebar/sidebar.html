@@ -1,0 +1,46 @@
+<aside id="sidebar">
+    <ul>
+        <li><a href="/modules/admin/dashboard.html">Home</a></li>
+        <li><a href="#" id="logout-btn">Logout</a></li>
+    </ul>
+</aside>
+
+<style>
+    /* Basic styles for the sidebar */
+    #sidebar {
+        width: 200px;
+        background-color: #f4f4f4; /* Light gray background */
+        padding: 20px;
+        position: fixed;
+        height: 100%;
+    }
+
+    #sidebar ul {
+        list-style-type: none; /* Remove default list styling */
+        padding: 0;
+    }
+
+    #sidebar ul li {
+        margin: 10px 0; /* Space between menu items */
+    }
+
+    #sidebar ul li a {
+        text-decoration: none; /* Remove underline from links */
+        color: #333; /* Dark text color */
+        display: block; /* Make link fill the entire list item */
+        padding: 10px; /* Padding for a larger click area */
+    }
+
+    #sidebar ul li a:hover {
+        background-color: #ddd; /* Change background on hover */
+    }
+</style>
+<script>
+    document.getElementById("logout-btn").addEventListener("click", () => {
+        // Clear the current_user from local storage
+        localStorage.removeItem("current_user");
+
+        // Redirect to the login page
+        window.location.href = "/authentication/login.html"; // Change this to your login page URL
+    });
+</script>

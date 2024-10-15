@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f0f4f8;
+}
+
+/* Header (User Profile Only) */
+.header {
+    display: flex;
+    justify-content: space-between; /* Space between items, pushes user role to the right */
+    align-items: center; /* Center align items vertically */
+    padding: 10px 20px;
+    background-color: white; /* Optional: White background for the header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for depth */
+}
+
+.user-profile {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.user-profile img {
+    width: 40px; /* Size of the profile image */
+    height: 40px; /* Size of the profile image */
+    border-radius: 50%; /* Makes the image circular */
+    margin-right: 10px; /* Space between image and username */
+}
+
+.user-profile span {
+    margin-right: 10px; /* Adds space between username and role */
+    color: #333; /* Color for the username */
+}
+
+.user-profile .user-role {
+    font-size: 0.9em; /* Slightly smaller font for role */
+    color: #6c757d; /* Gray color for the role text */
+    font-weight: 400; /* Regular weight for the role */
+}
+
+h1 {
+    color: #333;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+}
+
+.card h2 {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 2em; /* Larger font for numbers */
+    color: #007bff; /* Blue color for numbers */
+    margin: 0;
+}
+.logout-button {
+    background-color: #dc3545; /* Red background color */
+    color: white; /* White text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px 12px; /* Padding for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.logout-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}

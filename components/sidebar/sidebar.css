@@ -1,0 +1,76 @@
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2C3E50; /* Darker blue for sidebar */
+    color: #ECF0F1; /* Light text color */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    height: 100vh; /* Full height */
+    position: fixed; /* Fixed position */
+    top: 0;
+    left: 0;
+  }
+  
+  .sidebar-header {
+    margin-bottom: 50px;
+    font-size: 24px; /* Larger font size for the title */
+    text-align: center; /* Center align title */
+    color: #3498DB; /* Bright blue for the title */
+  }
+  
+  .nav-links {
+    list-style: none;
+  }
+  
+  .nav-links li {
+    margin: 20px 0;
+  }
+  
+  .nav-links a {
+    color: #ECF0F1;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 10px; /* Add padding for better click area */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background 0.3s; /* Smooth background change */
+  }
+  
+  .nav-links a i {
+    margin-right: 10px;
+  }
+  
+  .nav-links a:hover {
+    background-color: #34495E; /* Slightly lighter background on hover */
+  }
+  
+  /* Position the logout button at the bottom */
+  .logout {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .logout a {
+    color: #ECF0F1;
+    text-decoration: none;
+    font-size: 18px;
+    width: 215px;
+    display: flex;
+    align-items: center;
+    padding: 10px; /* Add padding for better click area */
+    border-radius: 5px; /* Rounded corners for links */
+    transition: background 0.3s; /* Smooth background change */
+  }
+  
+  .logout a i {
+    margin-right: 10px;
+  }
+  
+  .logout a:hover {
+    background-color: #34495E; /* Slightly lighter background on hover */
+  }
