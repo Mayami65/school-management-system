@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusLink - User Management</title>
+    <link rel="icon" href="/assets/images/favicon.webp" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/components/navbar/navbar.css">
+    <link rel="stylesheet" href="/components/sidebar/sidebar.css">
+</head>
+<body>
+    <div id="navbar"></div> <!-- Container for the navbar -->
+    <div id="sidebar"></div> <!-- Container for the sidebar -->
+
+    <div class="container">
+        <!-- Main Content -->
+        <main class="main-content">
+            <h1>User Management</h1>
+            <button onclick="openUserForm()">Add User</button>
+            <table id="user-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="user-table-body">
+                    <!-- User rows will be inserted here -->
+                </tbody>
+            </table>
+
+            <!-- User Form Modal -->
+            <div id="user-form-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" onclick="closeUserForm()">&times;</span>
+                    <h2 id="form-title">Add User</h2>
+                    <input type="hidden" id="user-id">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role:</label>
+                        <select id="role" required>
+                            <option value="select">Select role</option>
+                            <option value="admin">Admin</option>
+                            <option value="staff">Staff</option>
+                            <option value="student">Student</option>
+                        </select>
+                    </div>
+                    <button id="save-button" onclick="saveUser()">Save</button>
+                </div>
+            </div>            
+        </main>
+
+    <script src="users.js"></script> <!-- Link to the JS file for functionality -->
+    <script>
+        const roleBasedNavLinks = {
+            admin: [
+                { icon: "fas fa-tachometer-alt", text: "Dashboard", href: "/modules/admin/dashboard.html" },
+                { icon: "fas fa-users", text: "Users", href: "/modules/users/users.html" },
+                { icon: "fas fa-bullhorn", text: "Announcements", href: "/modules/announcements/announcement.html" },
+                { icon: "fas fa-cogs", text: "Settings", href: "settings.html" },
+            ],
+            staff: [
+                { icon: "fas fa-tachometer-alt", text: "Dashboard", href: "dashboard.html" },
+                { icon: "fas fa-chalkboard-teacher", text: "Staff", href: "staff.html" },
+                { icon: "fas fa-bullhorn", text: "Announcements", href: "announcements.html" },
+            ],
+            student: [
+                { icon: "fas fa-tachometer-alt", text: "Dashboard", href: "dashboard.html" },
+                { icon: "fas fa-bullhorn", text: "Announcements", href: "announcements.html" },
+                { icon: "fas fa-book", text: "My Classes", href: "classes.html" },
+            ],
+        };
+
+        // Function to generate sidebar links based on user role
+        function generateSidebarLinks(role) {
+            const navLinksContainer = document.getElementById('nav-links-container');
+
+            if (!navLinksContainer) {
+                console.error('Nav Links Container not found!');
+                return; // Exit if the container is not found
+            }
+
+            navLinksContainer.innerHTML = ''; // Clear existing links
+
+            const normalizedRole = role.toLowerCase(); // Normalize role to lowercase
+            const links = roleBasedNavLinks[normalizedRole] || []; // Get links for the normalized role
+
+            links.forEach(link => {
+                const a = document.createElement('a');
+                a.href = link.href; // Set the href to the dedicated HTML page
+                a.classList.add('nav-link');
+                a.innerHTML = `<i class="${link.icon}"></i> ${link.text}`;
+                navLinksContainer.appendChild(a);
+            });
+        }
+
+        // Load Sidebar
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('../../components/sidebar/sidebar.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    document.getElementById('sidebar').innerHTML = html;
+
+                    // Fetch the current user from local storage
+                    const currentUser = JSON.parse(localStorage.getItem('current_user'));
+
+                    // Check if the user is logged in
+                    if (currentUser) {
+                        // Set the data-role attribute in the sidebar
+                        const sidebarElement = document.querySelector('.sidebar');
+                        sidebarElement.setAttribute('data-role', currentUser.role);
+
+                        // Generate links based on the normalized user role
+                        generateSidebarLinks(currentUser.role);
+
+                        // Add event listener for logout button
+                        const logoutButton = document.querySelector('.logout'); // Select the logout button
+                        if (logoutButton) {
+                            logoutButton.addEventListener('click', (event) => {
+                                event.preventDefault(); // Prevent the default anchor click behavior
+                                // Clear the current user data from local storage
+                                localStorage.removeItem('current_user');
+
+                                // Redirect to the login page
+                                window.location.href = '/authentication/login/login.html'; // Adjust the path as necessary
+                            });
+                        }
+                    } else {
+                        // Redirect to login if no user is found
+                        window.location.href = '/authentication/login/login.html';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading the sidebar:', error.message);
+                });
+
+            // Load Navbar
+            fetch('../../components/navbar/navbar.html')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    document.getElementById('navbar').innerHTML = html;
+
+                    // Inline script for user details
+                    const currentUser = JSON.parse(localStorage.getItem('current_user'));
+                    if (currentUser) {
+                        document.getElementById('user-name').textContent = currentUser.name;
+                        document.getElementById('user-role').textContent = currentUser.role;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading the navbar:', error.message);
+                });
+        });
+    </script>
+</body>
+</html>

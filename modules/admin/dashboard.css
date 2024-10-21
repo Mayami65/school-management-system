@@ -1,81 +1,102 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f0f4f8;
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex; /* Use flexbox to position the sidebar and main content */
 }
 
-/* Header (User Profile Only) */
-.header {
-    display: flex;
-    justify-content: space-between; /* Space between items, pushes user role to the right */
-    align-items: center; /* Center align items vertically */
-    padding: 10px 20px;
-    background-color: white; /* Optional: White background for the header */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for depth */
+#sidebar {
+    width: 200px; /* Fixed width for the sidebar */
+    height: 100vh; /* Full height for the sidebar */
+    position: fixed; /* Fix the sidebar position */
+    top: 0;
+    left: 0;
+    background-color: #fff; /* Background color for the sidebar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+    z-index: 1001; /* Higher z-index to ensure it’s above the navbar */
 }
 
-.user-profile {
-    display: flex;
-    align-items: center; /* Align items vertically */
+#navbar {
+    width: calc(100% - 200px); /* Full width minus sidebar width */
+    height: 60px; /* Fixed height for the navbar */
+    position: fixed; /* Fix the navbar position */
+    top: 0; /* Align it to the top */
+    left: 200px; /* Align it next to the sidebar */
+    background-color: white; /* Background color for the navbar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    z-index: 1000; /* Ensure navbar stays above the main content */
+    display: flex; /* Use flexbox for navbar content alignment */
+    align-items: center; /* Center items vertically */
+    padding: 0 20px; /* Add padding for spacing */
 }
 
-.user-profile img {
-    width: 40px; /* Size of the profile image */
-    height: 40px; /* Size of the profile image */
-    border-radius: 50%; /* Makes the image circular */
-    margin-right: 10px; /* Space between image and username */
-}
-
-.user-profile span {
-    margin-right: 10px; /* Adds space between username and role */
-    color: #333; /* Color for the username */
-}
-
-.user-profile .user-role {
-    font-size: 0.9em; /* Slightly smaller font for role */
-    color: #6c757d; /* Gray color for the role text */
-    font-weight: 400; /* Regular weight for the role */
-}
-
-h1 {
-    color: #333;
+.main-content {
+    margin-left: 200px; /* Offset main content by the sidebar width */
+    margin-top: 60px; /* Offset main content by the navbar height */
+    padding: 20px; /* Add padding for the main content */
+    flex: 1; /* Allow main content to take up remaining space */
+    background-color: #f4f4f4; /* Light background for the main area */
+    min-height: calc(100vh - 60px); /* Ensure content takes up the full height of the view */
+    box-sizing: border-box; /* Include padding in the width and height calculation */
 }
 
 .cards {
     display: flex;
-    gap: 20px;
-    margin-top: 20px;
+    justify-content: space-around; /* Distribute cards evenly */
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+    gap: 20px; /* Space between each card */
+    padding: 20px; /* Padding around the cards area */
 }
 
 .card {
-    background: #ffffff;
+    background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     padding: 20px;
-    text-align: center;
-    flex: 1;
+    width: 300px; /* Fixed width for consistency */
+    text-align: center; /* Center text inside cards */
+    box-sizing: border-box; /* Ensure padding does not affect card width */
 }
 
 .card h2 {
-    color: #555;
-    margin-bottom: 10px;
+    font-size: 20px; /* Font size for card heading */
+    margin-bottom: 10px; /* Space below the heading */
+    color: #333; /* Dark text color for heading */
 }
 
 .card p {
-    font-size: 2em; /* Larger font for numbers */
-    color: #007bff; /* Blue color for numbers */
-    margin: 0;
-}
-.logout-button {
-    background-color: #dc3545; /* Red background color */
-    color: white; /* White text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 8px 12px; /* Padding for the button */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    font-size: 24px; /* Font size for the main text */
+    color: #555; /* Medium text color */
+    margin: 0; /* Remove default margin for better spacing */
 }
 
-.logout-button:hover {
-    background-color: #c82333; /* Darker red on hover */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%; /* Full width for sidebar on smaller screens */
+        height: auto; /* Let the sidebar height adjust */
+        position: relative; /* Make it scrollable with the page */
+        box-shadow: none; /* Remove shadow for a flatter design */
+    }
+
+    #navbar {
+        width: 100%; /* Full width on smaller screens */
+        left: 0; /* Align to the left edge */
+    }
+
+    .main-content {
+        margin-left: 0; /* Remove margin for the sidebar */
+        margin-top: 60px; /* Maintain space for the navbar */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .cards {
+        justify-content: center; /* Center cards on smaller screens */
+        gap: 15px; /* Reduce space between cards */
+    }
+
+    .card {
+        width: 100%; /* Make cards take up full width */
+        max-width: 300px; /* Limit maximum width */
+    }
 }

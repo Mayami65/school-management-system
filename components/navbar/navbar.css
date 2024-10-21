@@ -1,23 +1,34 @@
-/* components/navbar/navbar.css */
 .header {
     display: flex;
-    justify-content: space-between; /* Space between profile and role */
+    justify-content: flex-end; /* Align items to the end (right) */
     align-items: center; /* Center items vertically */
-    padding: 10px 20px;
-    background-color: white; /* Optional: White background for the header */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for depth */
+    padding: 15px 25px; /* Adjust padding for better spacing */
+    background-color: #f4f4f4; /* White background for the header */
+    position: fixed; /* Keep the header fixed at the top */
+    width: calc(100% - 200px); /* Full width minus sidebar width */
+    left: 200px; /* Align with the sidebar */
+    top: 0;
+    z-index: 1000; /* Ensure the header stays above other elements */
 }
 
 .user-profile {
     display: flex;
     align-items: center; /* Align profile image and username vertically */
+    gap: 10px; /* Space between image and name */
+    margin-right: 5%;
 }
 
 .user-profile img {
     width: 40px; /* Size of the profile image */
     height: 40px; /* Size of the profile image */
     border-radius: 50%; /* Makes the image circular */
-    margin-right: 10px; /* Space between image and username */
+    object-fit: cover; /* Ensures image fits well */
+}
+
+.user-name {
+    font-size: 1em; /* Adjusted font size */
+    color: #333; /* Darker text color */
+    font-weight: 600; /* Semi-bold for the name */
 }
 
 .user-role {
@@ -26,16 +37,10 @@
     font-weight: 400; /* Regular weight for the role */
 }
 
-.logout-button {
-    background-color: #dc3545; /* Red background color */
-    color: white; /* White text color */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 8px 12px; /* Padding for the button */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
-}
-
-.logout-button:hover {
-    background-color: #c82333; /* Darker red on hover */
+@media (max-width: 768px) {
+    .header {
+        width: 100%; /* Full width on smaller screens */
+        left: 0; /* Align to the left edge */
+        padding: 10px 15px; /* Adjust padding for smaller screens */
+    }
 }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusLink - Announcements</title>
+    <link rel="icon" href="/assets/images/favicon.webp" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/components/sidebar/sidebar.css">
+    <link rel="stylesheet" href="/components/navbar/navbar.css">
+</head>
+<body>
+
+    <div id="sidebar"></div> <!-- Container for the sidebar -->
+    <div id="navbar"></div> <!-- Container for the navbar -->
+
+    <div class="container">
+        <div class="main-content">
+            <h1>Announcements</h1>
+            <button id="add-announcement-btn" onclick="openAnnouncementForm()">Add Announcement</button>
+            <table id="announcement-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="announcement-table-body">
+                    <!-- Announcements will be dynamically populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal Content for Announcements -->
+    <div id="announcement-form-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeAnnouncementForm()">&times;</span>
+            <h2 id="form-title">Add Announcement</h2>
+            <input type="hidden" id="announcement-id">
+            <div class="form-group">
+                <label for="announcement-title">Title</label>
+                <input type="text" id="announcement-title" placeholder="Enter announcement title">
+            </div>
+            <div class="form-group">
+                <label for="announcement-details">Details</label>
+                <textarea id="announcement-details" placeholder="Enter announcement details"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="announcement-date">Date</label>
+                <input type="date" id="announcement-date">
+            </div>
+            <button id="save-announcement-button" onclick="saveAnnouncement()">Save Announcement</button>
+        </div>
+    </div>
+
+
+    <script src="announcements.js"></script>
+</body>
+</html>
