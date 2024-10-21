@@ -39,7 +39,7 @@ function generateSidebarLinks(role) {
         navLinksContainer.appendChild(a);
     });
 }
-
+  
 // Load Sidebar and Navbar
 document.addEventListener('DOMContentLoaded', () => {
     // Load Sidebar
