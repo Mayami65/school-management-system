@@ -1,0 +1,232 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex; /* Use flexbox to position the sidebar and main content */
+}
+
+/* Sidebar Styles */
+#sidebar {
+    width: 200px; /* Fixed width for the sidebar */
+    height: 100vh; /* Full height for the sidebar */
+    position: fixed; /* Fix the sidebar position */
+    top: 0;
+    left: 0;
+    background-color: #fff; /* Background color for the sidebar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+    z-index: 1001; /* Higher z-index to ensure it’s above the navbar */
+}
+
+/* Navbar Styles */
+#navbar {
+    width: calc(100% - 200px); /* Full width minus sidebar width */
+    height: 60px; /* Fixed height for the navbar */
+    position: fixed; /* Fix the navbar position */
+    top: 0; /* Align it to the top */
+    left: 200px; /* Align it next to the sidebar */
+    background-color: white; /* Background color for the navbar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    z-index: 1000; /* Ensure navbar stays above the main content */
+    display: flex; /* Use flexbox for navbar content alignment */
+    align-items: center; /* Center items vertically */
+    padding: 0 20px; /* Add padding for spacing */
+}
+
+/* Main Content Styles */
+.container {
+    display: flex;
+    flex: 1;
+    margin-top: 60px; /* Space for the navbar */
+}
+
+.main-content {
+    margin-left: 230px; /* Offset main content by the sidebar width */
+    padding: 20px; /* Add padding for the main content */
+    flex: 1; /* Allow main content to take up remaining space */
+    background-color: #f4f4f4; /* Light background for the main area */
+    min-height: calc(100vh - 60px); /* Ensure content takes up the full height of the view */
+    box-sizing: border-box; /* Include padding in the width and height calculation */
+}
+
+/* Table Container Styling */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Table Styling */
+#user-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#user-table thead {
+    background-color: #f7f7f7;
+    text-align: left;
+}
+
+#user-table thead th {
+    padding: 12px 15px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 2px solid #e2e2e2;
+}
+
+#user-table tbody tr {
+    border-bottom: 1px solid #e2e2e2;
+    transition: background-color 0.3s ease;
+}
+
+#user-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+#user-table tbody td {
+    padding: 12px 15px;
+    font-size: 14px;
+    color: #555;
+    max-width: 300px; /* Controls the width of content cells */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Button Styling */
+#user-table tbody td button {
+    background-color: #ffa500;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 5px;
+}
+
+#user-table tbody td button:hover {
+    background-color: #e59400;
+}
+
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1002; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff; /* White background */
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888; /* Border color */
+    border-radius: 8px; /* Rounded corners */
+    width: 400px; /* Width of modal */
+    height: fit-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Close Button */
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 15px; /* Space between form fields */
+}
+
+.form-group label {
+    display: block; /* Block layout for labels */
+    margin-bottom: 5px; /* Space below the label */
+    font-weight: bold; /* Bold labels */
+}
+
+.form-group input,
+.form-group select {
+    width: 100%; /* Full width inputs */
+    padding: 10px; /* Padding for comfort */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Slightly rounded corners */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* Save Button */
+#save-button {
+    background-color: #007BFF; /* Bootstrap primary color */
+    color: white; /* White text */
+    border: none; /* No border */
+    padding: 10px 15px; /* Padding for button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size */
+    width: 100%; /* Full width button */
+}
+
+#save-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Button Styles */
+button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+/* Button Styling */
+#user-table tbody td button {
+    background-color: #ffa500; /* General button color */
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 5px;
+}
+
+#user-table tbody td button:hover {
+    background-color: #e59400;
+}
+
+/* Delete Button Specific Styling */
+#user-table tbody td .delete-button {
+    background-color: #dc3545; /* Red color for delete button */
+}
+
+#user-table tbody td .delete-button:hover {
+    background-color: #c82333; /* Darker red on hover for delete button */
+}

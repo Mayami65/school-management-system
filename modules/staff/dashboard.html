@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusLink</title>
+    <title>CampusLink - Staff Dashboard</title>
+    <link rel="icon" href="/assets/images/favicon.webp" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="/components/sidebar/sidebar.css">
+    <link rel="stylesheet" href="/components/navbar/navbar.css">
 </head>
 <body>
-    <h1>Staff Dashboard</h1>
-        <p>Welcome Staff!</p>
+    <div id="sidebar"></div> <!-- Container for the sidebar -->
+    <div id="navbar"></div> <!-- Container for the navbar -->
+
+    <div class="main-content">
+        <div class="cards">
+            <div class="card">
+                <h2>Total Staffs</h2>
+                <p id="total-staffs">0</p>
+            </div>
+        </div>
+    </div> 
+
+    <script src="dashboard.js"></script>
 </body>
 </html>

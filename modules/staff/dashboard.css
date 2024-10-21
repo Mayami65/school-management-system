@@ -1,0 +1,66 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  display: flex; /* Use flexbox to position the sidebar and main content */
+}
+
+#sidebar {
+  width: 200px; /* Fixed width for the sidebar */
+  height: 100vh; /* Full height for the sidebar */
+  position: fixed; /* Fix the sidebar position */
+  top: 0;
+  left: 0;
+  background-color: #fff; /* Optional: Set a background color for the sidebar */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+  z-index: 1001; /* Higher z-index to ensure it’s above the navbar */
+}
+
+#navbar {
+  width: calc(100% - 200px); /* Full width minus sidebar width */
+  height: 60px; /* Fixed height for the navbar */
+  position: fixed; /* Fix the navbar position */
+  top: 0; /* Align it to the top */
+  left: 270px; /* Align it next to the sidebar */
+  background-color: white; /* Background color for the navbar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  z-index: 1000; /* Ensure navbar stays above the sidebar */
+}
+
+.main-content {
+  margin-left: 270px; /* Offset main content by the sidebar width */
+  margin-top: 60px; /* Offset main content by the navbar height */
+  padding: 20px; /* Add some padding for the main content */
+  flex: 1; /* Allow main content to take up remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+  padding: 20px;
+  width: 300px; /* Set a fixed width for cards */
+  text-align: center; /* Center text inside cards */
+}
+
+.card h2 {
+  font-size: 20px; /* Font size for card heading */
+  margin-bottom: 10px; /* Space below the heading */
+  color: #333; /* Dark text color for heading */
+}
+
+.card p {
+  font-size: 24px; /* Font size for the main text */
+  color: #555; /* Medium text color */
+}

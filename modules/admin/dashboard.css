@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex; /* Use flexbox to position the sidebar and main content */
+}
+
+#sidebar {
+    width: 200px; /* Fixed width for the sidebar */
+    height: 100vh; /* Full height for the sidebar */
+    position: fixed; /* Fix the sidebar position */
+    top: 0;
+    left: 0;
+    background-color: #fff; /* Background color for the sidebar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for depth */
+    z-index: 1001; /* Higher z-index to ensure it’s above the navbar */
+}
+
+#navbar {
+    width: calc(100% - 200px); /* Full width minus sidebar width */
+    height: 60px; /* Fixed height for the navbar */
+    position: fixed; /* Fix the navbar position */
+    top: 0; /* Align it to the top */
+    left: 200px; /* Align it next to the sidebar */
+    background-color: white; /* Background color for the navbar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    z-index: 1000; /* Ensure navbar stays above the main content */
+    display: flex; /* Use flexbox for navbar content alignment */
+    align-items: center; /* Center items vertically */
+    padding: 0 20px; /* Add padding for spacing */
+}
+
+.main-content {
+    margin-left: 200px; /* Offset main content by the sidebar width */
+    margin-top: 60px; /* Offset main content by the navbar height */
+    padding: 20px; /* Add padding for the main content */
+    flex: 1; /* Allow main content to take up remaining space */
+    background-color: #f4f4f4; /* Light background for the main area */
+    min-height: calc(100vh - 60px); /* Ensure content takes up the full height of the view */
+    box-sizing: border-box; /* Include padding in the width and height calculation */
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around; /* Distribute cards evenly */
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+    gap: 20px; /* Space between each card */
+    padding: 20px; /* Padding around the cards area */
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px;
+    width: 300px; /* Fixed width for consistency */
+    text-align: center; /* Center text inside cards */
+    box-sizing: border-box; /* Ensure padding does not affect card width */
+}
+
+.card h2 {
+    font-size: 20px; /* Font size for card heading */
+    margin-bottom: 10px; /* Space below the heading */
+    color: #333; /* Dark text color for heading */
+}
+
+.card p {
+    font-size: 24px; /* Font size for the main text */
+    color: #555; /* Medium text color */
+    margin: 0; /* Remove default margin for better spacing */
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%; /* Full width for sidebar on smaller screens */
+        height: auto; /* Let the sidebar height adjust */
+        position: relative; /* Make it scrollable with the page */
+        box-shadow: none; /* Remove shadow for a flatter design */
+    }
+
+    #navbar {
+        width: 100%; /* Full width on smaller screens */
+        left: 0; /* Align to the left edge */
+    }
+
+    .main-content {
+        margin-left: 0; /* Remove margin for the sidebar */
+        margin-top: 60px; /* Maintain space for the navbar */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .cards {
+        justify-content: center; /* Center cards on smaller screens */
+        gap: 15px; /* Reduce space between cards */
+    }
+
+    .card {
+        width: 100%; /* Make cards take up full width */
+        max-width: 300px; /* Limit maximum width */
+    }
+}
