@@ -8,34 +8,54 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="/components/sidebar/sidebar.css">
-    <link rel="stylesheet" href="/components/navbar/navbar.css"> <!-- Include navbar CSS -->
+    <link rel="stylesheet" href="/components/navbar/navbar.css">
 </head>
 <body>
     <div id="sidebar"></div> <!-- Container for the sidebar -->
     <div id="navbar"></div> <!-- Container for the navbar -->
 
     <div class="main-content">
-        <div class="cards">
+        <div class="dashboard-header">
+            <h1>Welcome, Student</h1>
+            <p>Here are your upcoming activities and notifications</p>
+        </div>
+
+        <div class="cards-container">
             <div class="card">
-                <h2>Upcoming Classes</h2>
-                <ul id="upcoming-classes">
-                    <li>Class: Math 101 - Date: 2024-10-20</li>
-                    <li>Class: Science 102 - Date: 2024-10-22</li>
-                </ul>
+                <div class="card-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Upcoming Classes</h3>
+                    <ul id="upcoming-classes">
+                        <li>Class: Math 101 - Date: 2024-10-20</li>
+                        <li>Class: Science 102 - Date: 2024-10-22</li>
+                    </ul>
+                </div>
             </div>
             <div class="card">
-                <h2>Assignments</h2>
-                <ul id="assignments">
-                    <li>Math Homework - Due: 2024-10-19</li>
-                    <li>Science Project - Due: 2024-10-25</li>
-                </ul>
+                <div class="card-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Assignments</h3>
+                    <ul id="assignments">
+                        <li>Math Homework - Due: 2024-10-19</li>
+                        <li>Science Project - Due: 2024-10-25</li>
+                    </ul>
+                </div>
             </div>
             <div class="card">
-                <h2>Notifications</h2>
-                <p id="notifications">You have no new notifications.</p>
+                <div class="card-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Notifications</h3>
+                    <p id="notifications">You have no new notifications.</p>
+                </div>
             </div>
         </div>
-    </div> 
+    </div>
 
     <script src="dashboard.js"></script>
 </body>

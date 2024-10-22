@@ -2,14 +2,21 @@
 const DEFAULT_PASSWORD = 'default123'; // You can change this to any default password
 
 // Function to open the user form modal
-function openUserForm() {
+function openUserForm(isEdit = false) {
     document.getElementById('user-form-modal').style.display = 'flex';
-    document.getElementById('form-title').textContent = 'Add User';
-    document.getElementById('user-id').value = ''; // Clear ID
-    document.getElementById('name').value = ''; // Clear name
-    document.getElementById('email').value = ''; // Clear email
-    document.getElementById('role').value = 'sele'; // Reset role
+    
+    if (!isEdit) {
+        // Clear the form only when it's not editing
+        document.getElementById('form-title').textContent = 'Add User';
+        document.getElementById('user-id').value = ''; // Clear ID
+        document.getElementById('name').value = ''; // Clear name
+        document.getElementById('email').value = ''; // Clear email
+        document.getElementById('role').value = ''; // Reset role
+    } else {
+        document.getElementById('form-title').textContent = 'Edit User';
+    }
 }
+
 
 // Function to close the user form modal
 function closeUserForm() {
@@ -76,14 +83,18 @@ function saveUser() {
 function editUser(index) {
     const users = JSON.parse(localStorage.getItem('school_users')) || [];
     const user = users[index];
+    
+    // Open the modal after the fields have been populated
+    openUserForm(); // Open form to edit
 
+    // Set form fields with the user's data
     document.getElementById('user-id').value = index; // Set user ID
     document.getElementById('name').value = user.name; // Set name
     document.getElementById('email').value = user.email; // Set email
     document.getElementById('role').value = user.role; // Set role
 
-    openUserForm(); // Open form to edit
 }
+
 
 // Function to delete a user
 function deleteUser(index) {

@@ -1,5 +1,3 @@
-// // sidebar.js
-
 const roleBasedNavLinks = {
     admin: [
         { icon: "fas fa-home", text: "Home", href: "#home" },

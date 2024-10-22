@@ -13,7 +13,7 @@ const roleBasedNavLinks = {
         { icon: "fas fa-bullhorn", text: "Announcements", href: "/modules/announcements/announcement.html" },
     ],
     student: [
-        { icon: "fas fa-tachometer-alt", text: "Dashboard", href: "/modules/student/dashboard.html" },
+        { icon: "fas fa-tachometer-alt", text: "Dashboard", href: "dashboard.html" },
         { icon: "fas fa-bullhorn", text: "Announcements", href: "/modules/announcements/announcement.html" },
         { icon: "fas fa-book", text: "My Classes", href: "classes.html" },
     ],

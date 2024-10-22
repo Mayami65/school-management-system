@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - CampusLink</title>
+    <!-- External CSS and Fonts -->
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="/components/navbar/navbar.css">
+    <link rel="stylesheet" href="/components/sidebar/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/11.1.9/sweetalert.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar Component -->
+        <div id="sidebar"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Navbar Component -->
+            <div id="navbar"></div>
+
+            <!-- Settings Content -->
+            <div class="content-container">
+                <h2>Settings</h2>
+
+                <div class="settings-item">
+                    <label for="change-password">Change Password</label>
+                    <input type="password" id="change-password" placeholder="Enter new password">
+                </div>
+
+                <div class="settings-item">
+                    <label for="change-theme">Change Theme</label>
+                    <select id="change-theme">
+                        <option value="light">Light Theme</option>
+                        <option value="dark">Dark Theme</option>
+                    </select>
+                </div>
+
+                <div class="settings-item">
+                    <button id="save-settings">Save Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/path/to/your/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/11.1.9/sweetalert.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load Sidebar and Navbar dynamically
+            fetch('/components/sidebar/sidebar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar').innerHTML = data;
+                });
+
+            fetch('/components/navbar/navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar').innerHTML = data;
+                });
+
+            // Save Settings Functionality
+            document.getElementById('save-settings').addEventListener('click', () => {
+                const newPassword = document.getElementById('change-password').value;
+                const theme = document.getElementById('change-theme').value;
+
+                if (newPassword || theme) {
+                    // Logic to save settings
+                    swal({
+                        title: "Settings Saved",
+                        text: "Your settings have been successfully saved!",
+                        icon: "success",
+                        button: "OK",
+                    });
+                } else {
+                    swal({
+                        title: "Error",
+                        text: "Please fill in all fields.",
+                        icon: "error",
+                        button: "OK",
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

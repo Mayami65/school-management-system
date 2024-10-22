@@ -5,7 +5,7 @@ const roleBasedNavLinks = {
         { icon: "fas fa-tachometer-alt", text: "Dashboard", href: "dashboard.html" },
         { icon: "fas fa-users", text: "Users", href: "/modules/users/users.html" },
         { icon: "fas fa-bullhorn", text: "Announcements", href: "/modules/announcements/announcement.html" },
-        { icon: "fas fa-cogs", text: "Settings", href: "settings.html" },
+        { icon: "fas fa-cogs", text: "Settings", href: "/modules/settings/settings.html" },
     ],
     staff: [
         { icon: "fas fa-tachometer-alt", text: "Dashboard", href: "dashboard.html" },

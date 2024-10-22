@@ -168,15 +168,16 @@ table tbody td button:hover {
 
 /* Modal Background */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1002; /* Sit on top */
-    left: 0;
+    display: none;
+    position: fixed;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1002;
 }
 
 /* Modal Content */
@@ -267,10 +268,12 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
     background-color: #0056b3;
+    transform: scale(1.08);
 }
 
 /* Cancel Button Styles */
@@ -284,4 +287,87 @@ button:hover {
     font-size: 16px; /* Font size */
     width: 100%; /* Full width button */
     margin-top: 10px; /* Space above the button */
+}
+
+/* Announcements Section Styles */
+.announcement-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.announcement-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #FFD700; /* Yellowish accent */
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.announcement-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.announcement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.announcement-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.announcement-heading {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.announcement-date {
+    font-size: 0.9rem;
+    color: #888;
+    background: #FFD700; /* Yellowish accent */
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.announcement-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-top: 8px;
+}
+
+.announcement-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.announcement-actions button {
+    background-color: #ffa500;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.announcement-actions button:hover {
+    background-color: #e59400;
 }

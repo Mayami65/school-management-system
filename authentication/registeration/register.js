@@ -1,5 +1,3 @@
-// register.js
-
 // Function to handle registration
 function handleRegistration(event) {
     event.preventDefault();

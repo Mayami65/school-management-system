@@ -1,9 +1,25 @@
 <div class="header">
-    <div class="user-profile">
-        <img src="/assets/user.webp" alt="Profile Image">
-        <div>
-            <div class="user-name" id="user-name"></div>
-            <div class="user-role" id="user-role"></div>
+    <!-- Search Bar in Center -->
+    <div class="search-bar-container">
+        <input type="text" class="search-input" placeholder="Search..." id="search-input">
+        <button class="search-button">
+            <i class="fas fa-search"></i> <!-- Font Awesome Search Icon -->
+        </button>
+    </div>
+
+    <!-- Notification icon and user profile aligned to the right -->
+    <div class="user-profile-container">
+        <div class="notification-icon">
+            <i class="fas fa-bell"></i> <!-- Font Awesome Bell Icon -->
+            <div class="notification-count">3</div> <!-- Notification count -->
+        </div>
+
+        <div class="user-profile">
+            <img src="/assets/user.webp" alt="Profile Image">
+            <div class="user-details">
+                <div class="user-name" id="user-name">John Doe</div>
+                <div class="user-role" id="user-role">Admin</div>
+            </div>
         </div>
     </div>
 </div>
