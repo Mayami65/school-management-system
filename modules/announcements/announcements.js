@@ -110,8 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadAnnouncements();
 });
 
-
-// Function to open the announcement form modal
 function openAnnouncementForm() {
     document.getElementById('announcement-form-modal').style.display = 'flex';
     document.getElementById('form-title').textContent = 'Add Announcement';
@@ -121,7 +119,6 @@ function openAnnouncementForm() {
     document.getElementById('announcement-date').value = ''; // Clear date
 }
 
-// Function to close the announcement form modal
 function closeAnnouncementForm() {
     document.getElementById('announcement-form-modal').style.display = 'none';
 }
@@ -154,7 +151,6 @@ function loadAnnouncements() {
     });
 }
 
-
 // Function to save announcement (add or edit)
 function saveAnnouncement() {
     const title = document.getElementById('announcement-title').value.trim();
@@ -163,7 +159,11 @@ function saveAnnouncement() {
 
     // Basic validation
     if (!title || !details || !date) {
-        alert('Title, Details, and Date are required fields.');
+        Swal.fire({
+            icon: 'warning',
+            title: 'Missing Information',
+            text: 'Title, Details, and Date are required fields.'
+        });
         return; // Exit the function if validation fails
     }
 
@@ -181,13 +181,18 @@ function saveAnnouncement() {
     localStorage.setItem('school_announcements', JSON.stringify(announcements));
     loadAnnouncements(); // Reload announcements
     closeAnnouncementForm(); // Close form
+
+    Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: id ? 'Announcement updated successfully!' : 'Announcement added successfully!'
+    });
 }
 
 function editAnnouncement(index) {
     const announcements = JSON.parse(localStorage.getItem('school_announcements')) || [];
     const announcement = announcements[index];
 
-    // Now open the form to display the populated values
     openAnnouncementForm(); // Open form with prepopulated values
 
     // Prepopulate the form fields with the announcement data
@@ -197,11 +202,7 @@ function editAnnouncement(index) {
     document.getElementById('announcement-date').value = announcement.date; // Set date
 
     document.getElementById('form-title').textContent = 'Edit Announcement'; // Update form title
-
-    
 }
-
-
 
 function deleteAnnouncement(index) {
     Swal.fire({
@@ -228,4 +229,3 @@ function deleteAnnouncement(index) {
         }
     });
 }
-
