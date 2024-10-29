@@ -1,6 +1,6 @@
 .header {
     display: flex;
-    justify-content: flex-end; /* Align items to the end (right) */
+    justify-content: flex-end; /* Align items to the right */
     align-items: center; /* Center items vertically */
     padding: 15px 25px; /* Adjust padding for better spacing */
     background-color: #f4f4f4; /* White background for the header */
@@ -11,36 +11,94 @@
     z-index: 1000; /* Ensure the header stays above other elements */
 }
 
+/* Search bar centered */
+.search-bar-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 5px 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+    font-size: 14px;
+    width: 300px;
+    outline: none;
+}
+
+.search-button {
+    background-color: #ffd700;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-button i {
+    font-size: 16px;
+    color: #fff;
+}
+
+.search-button:hover {
+    background-color: #ffa500;
+}
+
+/* Notification icon */
+.notification-icon {
+    position: relative;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.notification-icon i {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: rgb(255, 75, 3);
+    color: white;
+    font-size: 0.8rem;
+    padding: 2px 5px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* User profile with name and role aligned to the right */
+.user-profile-container {
+    display: flex;
+    align-items: center;
+}
+
 .user-profile {
     display: flex;
-    align-items: center; /* Align profile image and username vertically */
-    gap: 10px; /* Space between image and name */
-    margin-right: 5%;
+    align-items: center;
+    margin-right: 40px;
 }
 
 .user-profile img {
-    width: 40px; /* Size of the profile image */
-    height: 40px; /* Size of the profile image */
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover; /* Ensures image fits well */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
-.user-name {
-    font-size: 1em; /* Adjusted font size */
-    color: #333; /* Darker text color */
-    font-weight: 600; /* Semi-bold for the name */
+.user-details {
+    display: flex;
+    flex-direction: column;
 }
 
-.user-role {
-    font-size: 0.9em; /* Slightly smaller font for role */
-    color: #6c757d; /* Gray color for the role text */
-    font-weight: 400; /* Regular weight for the role */
-}
-
-@media (max-width: 768px) {
-    .header {
-        width: 100%; /* Full width on smaller screens */
-        left: 0; /* Align to the left edge */
-        padding: 10px 15px; /* Adjust padding for smaller screens */
-    }
+.user-name, .user-role {
+    font-size: 14px;
+    font-weight: 600;
 }

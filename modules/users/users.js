@@ -1,14 +1,20 @@
 // Default password for new users
-const DEFAULT_PASSWORD = 'default123'; // You can change this to any default password
+const DEFAULT_PASSWORD = 'default123';
 
 // Function to open the user form modal
-function openUserForm() {
+function openUserForm(isEdit = false) {
     document.getElementById('user-form-modal').style.display = 'flex';
-    document.getElementById('form-title').textContent = 'Add User';
-    document.getElementById('user-id').value = ''; // Clear ID
-    document.getElementById('name').value = ''; // Clear name
-    document.getElementById('email').value = ''; // Clear email
-    document.getElementById('role').value = 'sele'; // Reset role
+    
+    if (!isEdit) {
+        // Clear the form only when it's not editing
+        document.getElementById('form-title').textContent = 'Add User';
+        document.getElementById('user-id').value = ''; // Clear ID
+        document.getElementById('name').value = ''; // Clear name
+        document.getElementById('email').value = ''; // Clear email
+        document.getElementById('role').value = ''; // Reset role
+    } else {
+        document.getElementById('form-title').textContent = 'Edit User';
+    }
 }
 
 // Function to close the user form modal
@@ -30,7 +36,7 @@ function loadUsers() {
             <td>${user.role}</td>
             <td>
                 <button onclick="editUser(${index})">Edit</button>
-                <button class="delete-button" onclick="deleteUser(${index})">Delete</button>
+                <button class="delete-button" onclick="confirmDeleteUser(${index})">Delete</button>
             </td>
         `;
         userTableBody.appendChild(row);
@@ -45,15 +51,15 @@ function saveUser() {
 
     // Basic validation
     if (!name || !email) {
-        alert('Name and Email are required fields.');
-        return; // Exit the function if validation fails
+        Swal.fire('Error', 'Name and Email are required fields.', 'error');
+        return;
     }
 
     // Simple email format validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-        alert('Please enter a valid email address.');
-        return; // Exit the function if email format is invalid
+        Swal.fire('Error', 'Please enter a valid email address.', 'error');
+        return;
     }
 
     const id = document.getElementById('user-id').value;
@@ -62,27 +68,48 @@ function saveUser() {
     if (id) {
         // Edit existing user
         users[id] = { name, email, role }; // Password remains unchanged
+        Swal.fire('Success', 'User details updated successfully!', 'success');
     } else {
         // Add new user with default password
         users.push({ name, email, role, password: DEFAULT_PASSWORD });
+        Swal.fire('Success', 'New user added with default password!', 'success');
     }
 
     localStorage.setItem('school_users', JSON.stringify(users));
-    loadUsers(); // Reload users
-    closeUserForm(); // Close form
+    loadUsers();
+    closeUserForm();
 }
 
 // Function to edit an existing user
 function editUser(index) {
     const users = JSON.parse(localStorage.getItem('school_users')) || [];
     const user = users[index];
+    
+    openUserForm(true); // Open form to edit
 
+    // Set form fields with the user's data
     document.getElementById('user-id').value = index; // Set user ID
     document.getElementById('name').value = user.name; // Set name
     document.getElementById('email').value = user.email; // Set email
     document.getElementById('role').value = user.role; // Set role
+}
 
-    openUserForm(); // Open form to edit
+// Function to confirm delete user with SweetAlert
+function confirmDeleteUser(index) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: 'This action cannot be undone!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            deleteUser(index);
+            Swal.fire('Deleted!', 'User has been deleted.', 'success');
+        }
+    });
 }
 
 // Function to delete a user
